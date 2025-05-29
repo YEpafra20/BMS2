@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Balance Enquiry{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        Balance Enquiry
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            <div class="mb-3">
+                <label for="account_id" class="form-label">Account ID</label>
+                <input type="number" class="form-control" id="account_id" name="account_id" required>
+                <div class="form-text">Enter your 7-digit account number</div>
+            </div>
+            <div class="mb-3">
+                <label for="pin" class="form-label">PIN</label>
+                <input type="password" class="form-control" id="pin" name="pin" required>
+                <div class="form-text">Enter your 4-digit PIN</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Check Balance</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

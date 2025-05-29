@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        Welcome to Banking System
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Your Online Banking Solution</h5>
+        <p class="card-text">Please select one of the banking services from the navigation menu above.</p>
+        
+        <div class="row mt-4">
+            <div class="col-md-6 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Account Management</h5>
+                        <p class="card-text">Create a new account or check your balance.</p>
+                        <a href="{{ url_for('create_account') }}" class="btn btn-primary">Create Account</a>
+                        <a href="{{ url_for('balance_enquiry') }}" class="btn btn-outline-primary">Check Balance</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Transaction Management</h5>
+                        <p class="card-text">Credit or debit money from your account.</p>
+                        <a href="{{ url_for('credit') }}" class="btn btn-primary">Credit</a>
+                        <a href="{{ url_for('debit') }}" class="btn btn-outline-primary">Debit</a>
+                        <a href="{{ url_for('view_transactions') }}" class="btn btn-outline-primary mt-2">View Transactions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Security</h5>
+                <p class="card-text">Keep your account secure by regularly changing your PIN.</p>
+                <a href="{{ url_for('change_pin') }}" class="btn btn-primary">Change PIN</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

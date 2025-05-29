@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}View Transactions{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        View Transactions
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            <div class="mb-3">
+                <label for="account_id" class="form-label">Account ID</label>
+                <input type="number" class="form-control" id="account_id" name="account_id" required>
+                <div class="form-text">Enter your 7-digit account number</div>
+            </div>
+            <button type="submit" class="btn btn-primary">View Transactions</button>
+        </form>
+
+        {% if transactions %}
+        <div class="mt-4">
+            <h4>Transaction History</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Amount</th>
+                            <th>Transaction Date</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for transaction in transactions %}
+                        <tr>
+                            <td>{{ transaction.transaction_id }}</td>
+                            <td>₹{{ transaction.amount }}</td>
+                            <td>{{ transaction.trans_date }}</td>
+                            <td>
+                                {% if transaction.amount > 0 %}
+                                <span class="badge bg-success">Credit</span>
+                                {% else %}
+                                <span class="badge bg-danger">Debit</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

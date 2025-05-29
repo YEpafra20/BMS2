@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Change PIN{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        Change PIN
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            <div class="mb-3">
+                <label for="account_id" class="form-label">Account ID</label>
+                <input type="number" class="form-control" id="account_id" name="account_id" required>
+                <div class="form-text">Enter your 7-digit account number</div>
+            </div>
+            <div class="mb-3">
+                <label for="old_pin" class="form-label">Current PIN</label>
+                <input type="password" class="form-control" id="old_pin" name="old_pin" required>
+                <div class="form-text">Enter your current 4-digit PIN</div>
+            </div>
+            <div class="mb-3">
+                <label for="new_pin" class="form-label">New PIN</label>
+                <input type="password" class="form-control" id="new_pin" name="new_pin" required>
+                <div class="form-text">Enter your new 4-digit PIN</div>
+            </div>
+            <div class="mb-3">
+                <label for="new_pin2" class="form-label">Confirm New PIN</label>
+                <input type="password" class="form-control" id="new_pin2" name="new_pin2" required>
+                <div class="form-text">Re-enter your new PIN to confirm</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Change PIN</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
